@@ -49,7 +49,7 @@ def main():
     bot_token = os.getenv("TG_API_KEY")
     chat_id = os.getenv("TG_CHAT_ID")
     model_id = os.getenv("NOF1_MODEL_ID", "gpt-5")
-    minutes = int(os.getenv("TRADE_WINDOW_MINUTES", "60"))
+    minutes = int(os.getenv("TRADE_WINDOW_MINUTES", "2880"))
 
     print(f"🔍 Checking for {model_id} trades within the last {minutes} minutes...")
 

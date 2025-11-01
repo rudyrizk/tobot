@@ -1,9 +1,9 @@
 name: Nof1 Trade Monitor
 
 on:
+  workflow_dispatch:  # Allows manual triggering of the workflow
   schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
+    - cron: "*/15 * * * *"  # Runs every 15 minutes
 
 jobs:
   trade-monitor:
@@ -26,5 +26,5 @@ jobs:
         TG_API_KEY: ${{ secrets.TG_API_KEY }}
         TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         NOF1_MODEL_ID: "qwen3-max"
-        TRADE_WINDOW_MINUTES: "2880"
+        TRADE_WINDOW_MINUTES: "15"
       run: python nof1_trade_monitor.py

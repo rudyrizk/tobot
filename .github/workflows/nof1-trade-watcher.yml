@@ -1,0 +1,30 @@
+name: Nof1 Trade Monitor
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"
+  workflow_dispatch:
+
+jobs:
+  trade-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Run Trade Monitor
+      env:
+        TG_API_KEY: ${{ secrets.TG_API_KEY }}
+        TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        NOF1_MODEL_ID: "qwen3-max"
+        TRADE_WINDOW_MINUTES: "60"
+      run: python nof1_trade_monitor.py

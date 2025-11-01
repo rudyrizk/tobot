@@ -26,5 +26,5 @@ jobs:
         TG_API_KEY: ${{ secrets.TG_API_KEY }}
         TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         NOF1_MODEL_ID: "qwen3-max"
-        TRADE_WINDOW_MINUTES: "60"
+        TRADE_WINDOW_MINUTES: "2880"
       run: python nof1_trade_monitor.py
